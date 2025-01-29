@@ -1,16 +1,30 @@
+import java.util.HashSet;
+import java.util.Set;
+
 class Solution {
     public String reverseVowels(String s) {
         char[] word = s.toCharArray();
         int start = 0;
         int end = s.length() - 1;
-        String vowels = "aeiouAEIOU";
+        Set<Character> vowelSet = new HashSet<>();
+        
+        vowelSet.add('a');
+        vowelSet.add('e');
+        vowelSet.add('i');
+        vowelSet.add('o');
+        vowelSet.add('u');
+        vowelSet.add('A');
+        vowelSet.add('E');
+        vowelSet.add('I');
+        vowelSet.add('O');
+        vowelSet.add('U');
 
         while(start<end) {
-            while (start<end && vowels.indexOf(word[start]) == -1) {
+            while (start<end && !vowelSet.contains(word[start])) {
                 start++;
             }
 
-            while(start<end && vowels.indexOf(word[end]) == -1) {
+            while(start<end && !vowelSet.contains(word[end])) {
                 end--;
             }
 
